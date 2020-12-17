@@ -1,0 +1,33 @@
+.app {
+  display: flex;
+}
+
+.menu {
+  background: #0e1a35;
+  display: flex;
+  flex-direction: column;
+  width: 320px;
+  color: #fff;
+  font-size: 24px;
+  height: 1080px;
+
+  &__logo {
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__item {
+    padding: 40px;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    transition: all 0.3s ease-in-out;
+    background-color: transparent;
+
+    &:hover {
+      border-left: 10px solid #5584ff;
+      background-color: #122143
+    }
+  }
+}

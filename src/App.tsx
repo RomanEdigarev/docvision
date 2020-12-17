@@ -1,12 +1,16 @@
 import React from 'react';
-import './App.css';
-import {MainMenu} from "./sections/MainMenu";
+import './style.scss';
+import {Menu} from "./sections/Menu";
+import {BrowserRouter as Router, Route} from 'react-router-dom'
+
 
 function App() {
   return (
-    <div className="App">
-      <MainMenu/>
-    </div>
+    <Router>
+      <div className={'app'}>
+        <Menu/>
+      </div>
+    </Router>
   );
 }
 
