@@ -6,9 +6,8 @@ export const Menu = () => {
   return (
     <div className={'menu'}>
       <MenuLogo/>
-      <MenuItem/>
-      <MenuItem/>
-      <MenuItem/>
+      <MenuItem text={'Помещения'} to={'/places'}/>
+      <MenuItem text={'Оборудование'} to={'/inventory'}/>
     </div>
   );
 };

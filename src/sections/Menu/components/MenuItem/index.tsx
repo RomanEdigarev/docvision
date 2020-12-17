@@ -1,10 +1,14 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {Link} from 'react-router-dom'
 
-export const MenuItem = () => {
+type Props = {
+  to: string
+  text: string
+}
+export const MenuItem : FC<Props> = ({to, text}) => {
   return (
-    <Link className={'menu__item'} to={'/'}>
-      Menu Item
+    <Link className={'menu__item'} to={to}>
+      {text}
     </Link>
   );
 };
