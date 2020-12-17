@@ -1,10 +1,10 @@
 import React from 'react';
-import {Inventory} from "./Inventory";
+import {Places} from "./Places";
 
 const Content = () => {
   return (
     <div className={'layout__content'}>
-      <Inventory/>
+      <Places/>
     </div>
   );
 };
