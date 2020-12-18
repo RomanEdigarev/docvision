@@ -4,7 +4,7 @@ import {Places} from "./Places";
 const Content = () => {
   return (
     <div className={'layout__content'}>
-      <Places/>
+      <Places />
     </div>
   );
 };

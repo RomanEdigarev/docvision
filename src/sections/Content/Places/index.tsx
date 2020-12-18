@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Place} from "./components/Place";
-import {PlacesData} from "../../../types";
+import {PlacesData, PlaceType} from "../../../types";
 import {api} from '../../../api'
 
 
@@ -8,24 +8,31 @@ export const Places = () => {
   const [placesData, setPlaces] = useState<PlacesData>()
   const [loading, setLoading] = useState(true)
 
-  useEffect( () => {
+  useEffect(() => {
     const getPlaces = async () => {
       const places = await api.getPlaces()
-      if(places) {
+      if (places) {
         setPlaces(places)
         setLoading(false)
       }
     }
     getPlaces()
-  },[])
+  }, [])
+
+  const getPlace = (id: string) : PlaceType | undefined => {
+    const place : PlaceType[] = placesData!.places.filter(place => place.id === id)
+    if (place.length === 1) {
+      return place[0]
+    }
+  }
 
   const displayLoading = (<div>Loading</div>)
 
   return (
     <div className={'layout__content__places'}>
       {
-         loading ? displayLoading :
-           placesData?.places.map(place => <Place place={place}/>)
+        loading ? displayLoading :
+          placesData?.places.map(place => <Place place={place} getPlace={getPlace}/>)
       }
     </div>
   );

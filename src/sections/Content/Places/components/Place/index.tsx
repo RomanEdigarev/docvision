@@ -1,12 +1,13 @@
 import React, {FC} from 'react';
 import {Link} from 'react-router-dom'
-import {PlaceType} from "../../../../../types";
+import {PlacesData, PlaceType} from "../../../../../types";
 
 
 type Props = {
   place: PlaceType
+  getPlace: (id: string) => PlaceType | undefined
 }
-export const Place : FC<Props>= ({place}) => {
+export const Place : FC<Props>= ({place, getPlace}) => {
 
   const renderPlace = place.parts?.length > 0 ? (
     <div className={'layout__content__place'}>
@@ -15,7 +16,9 @@ export const Place : FC<Props>= ({place}) => {
       </div>
       <ul className={'layout__content__place__parts'}>
         {
-          place.parts.map(part => <li><Link to={`/place/${part}`}>{part}</Link></li>)
+          place.parts.map(part => <li><Link to={`/place/${part}`}>{
+            getPlace(part)?.data.name
+          }</Link></li>)
         }
       </ul>
     </div>
