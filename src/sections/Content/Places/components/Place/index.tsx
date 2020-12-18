@@ -1,4 +1,5 @@
 import React, {FC} from 'react';
+import {Link} from 'react-router-dom'
 import {PlaceType} from "../../../../../types";
 
 
@@ -13,14 +14,15 @@ export const Place : FC<Props>= ({place}) => {
         <h1>{place.data.name}</h1>
       </div>
       <ul className={'layout__content__place__parts'}>
-        <li><h2>{place.parts[0]}</h2></li>
-        <li><h2>{place.parts[1]}</h2></li>
+        {
+          place.parts.map(part => <li><Link to={`/place/${part}`}>{part}</Link></li>)
+        }
       </ul>
     </div>
   ) :  (
     <div className={'layout__content__place'}>
       <div className={'layout__content__place__main'}>
-        <h1>{place.data.name}</h1>
+        <Link to={`/place/${place.id}`}>{place.data.name}</Link>
       </div>
     </div>
   )

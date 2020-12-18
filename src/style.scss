@@ -90,11 +90,21 @@
 
       &__main {
         color: #8492af;
+
+        a {
+          font-size: 32px;
+          font-weight: bold;
+        }
       }
 
       &__parts {
         color: #0e1a35;
         list-style-type: none;
+
+        li {
+          font-size: 24px;
+          margin-bottom: 10px;
+        }
       }
     }
   }
