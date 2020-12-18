@@ -4,7 +4,8 @@ import {Places} from "./Places";
 const Content = () => {
   return (
     <div className={'layout__content'}>
-      <Places/>
+      <Places />
+      {/*<Route exact path={'/place/:id'} render={(props) => <ViewPlace {...props}/>}/>*/}
     </div>
   );
 };
