@@ -88,15 +88,6 @@
       box-shadow: 2px 2px 15px 1px rgba(0, 0, 0, 0.15);
       margin: 10px 0;
 
-      &__main {
-        color: #8492af;
-
-        a {
-          font-size: 32px;
-          font-weight: bold;
-        }
-      }
-
       &__parts {
         color: #0e1a35;
         list-style-type: none;
@@ -111,7 +102,58 @@
     &__view-place {
 
     }
+
+    &__inventorys {
+
+      &__items {
+        color: #122143;
+        list-style-type: none;
+
+        &__item {
+          margin-bottom: 50px;
+
+          &__description {
+            div {
+              margin: 10px 0;
+
+              :hover {
+                text-decoration: underline;
+              }
+            }
+          }
+
+        }
+      }
+    }
   }
+
+}
+
+.layout__content__place__main {
+  color: #8492af;
+
+  a {
+    font-size: 24px;
+    font-weight: bold;
+  }
+}
+
+.add-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 250px;
+  height: 50px;
+  border-radius: 24px;
+  color: #fff;
+  padding: 15px;
+  background-color: #5584ff;
+  border: none;
+
+  &__text {
+    margin-left: 10px;
+  }
+;
 }
 
 

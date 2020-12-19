@@ -1,4 +1,4 @@
-import {Inventory, InventoryData, PlacesData, PlaceType} from "../types";
+import {Inventory, InventoryData, PlacesData, PlaceType} from "../../types";
 
 export const api = {
   getPlaces: async (): Promise<PlacesData> => {
@@ -31,9 +31,10 @@ export const api = {
             })
           }
         });
+        return docs
       });
     return {
-      inventory: inventoryData
+      inventory: inventoryData.filter(inventory => inventory)
     }
   }
 }
