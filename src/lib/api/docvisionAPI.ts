@@ -36,5 +36,19 @@ export const api = {
     return {
       inventory: inventoryData.filter(inventory => inventory)
     }
+  },
+
+  addNewInventory: async ({name, count, placeId}) => {
+    // @ts-ignore
+    let filestore = firebase.firestore();
+    filestore.collection("inventory").doc().set({
+      name,
+      count,
+      place: filestore.collection("places").doc(`${placeId}`)
+    }).then(() => {
+
+      console.info("Done");
+    });
   }
+
 }

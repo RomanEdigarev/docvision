@@ -1,6 +1,7 @@
 import React, {FC} from 'react';
-import {useForm} from "react-hook-form";
-import {PlacesData, PlaceType} from "../../../../types";
+import {useForm, SubmitHandler} from "react-hook-form";
+import {PlacesData} from "../../../../types";
+import {api} from '../../../../lib'
 import {RouteComponentProps} from "react-router-dom";
 
 type Inputs = {
@@ -8,6 +9,12 @@ type Inputs = {
   count: string,
   placeId: string
 };
+
+type FormValues = {
+  count: string,
+  name: string,
+  placeId: string
+}
 
 type Props = {
   placesData: PlacesData
@@ -24,7 +31,10 @@ export const InventoryForm: FC<RouteComponentProps<MatchParams> & Props> =
       placesData.places.find(place => place.id === match.params.placeId)
       : null
     const {register, handleSubmit, watch, errors} = useForm<Inputs>();
-    const onSubmit = data => console.log(data);
+
+    const onSubmit: SubmitHandler<FormValues> = async (data) => {
+      await api.addNewInventory({...data})
+    }
 
     return (
 
