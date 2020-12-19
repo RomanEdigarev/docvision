@@ -7,9 +7,13 @@ type MatchParams = {
 }
 export const ViewPlace: FC<RouteComponentProps<MatchParams>> = ({match}:any) => {
   const placeId = match.params.id
-  const place = usePlace(placeId)
+  const {place, loading} = usePlace(placeId)
   const inventorys = useInventory(placeId)
-  console.log(inventorys)
+
+  if(loading) {
+    return <div>Loading</div>
+  }
+
   return (
     <div className={'layout__content__view-place'}>
       <h1>
