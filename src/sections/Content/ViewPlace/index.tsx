@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import {RouteComponentProps} from 'react-router-dom'
+import {Link, RouteComponentProps} from 'react-router-dom'
 import {usePlace, useInventory} from '../../../lib'
 
 type MatchParams = {
@@ -24,6 +24,10 @@ export const ViewPlace: FC<RouteComponentProps<MatchParams>> = ({match}:any) => 
           inventorys?.map(inventory => <li key={inventory.id}>{inventory.data.name}</li>)
         }
       </ul>
+      <Link to={'/inventory/add'} className={'add-link'}>
+        <span className="material-icons">add</span>
+        <span className={'add-link__text'}>Добавить оборудование</span>
+      </Link>
     </div>
   );
 };

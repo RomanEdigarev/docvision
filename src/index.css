@@ -126,7 +126,9 @@ samp {
 small {
   font-size: 80%;
 }
-
+ul {
+  list-style-type: none;
+}
 /**
  * Prevent `sub` and `sup` elements from affecting the line height in
  * all browsers.
