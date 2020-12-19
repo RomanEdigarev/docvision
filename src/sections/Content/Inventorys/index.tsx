@@ -1,31 +1,29 @@
-import React, {useEffect, useState} from 'react';
+import React, {FC, useEffect, useState} from 'react';
 import {InventoryData, PlacesData} from "../../../types";
 import {api} from '../../../lib'
 import {InventoryItem} from "./components/Inventory";
 
 type State = {
   inventoryData: InventoryData | null
-  placesData: PlacesData | null
-  loading: boolean
 }
-export const Inventorys = () => {
-  const [{inventoryData, placesData, loading}, setInventorys] = useState<State>({placesData: null, inventoryData: null, loading: true})
+type Props = {
+  placesData: PlacesData | null
+}
+export const Inventorys: FC<Props> = ({placesData}) => {
+  const [{inventoryData}, setInventorys] = useState<State>({inventoryData: null})
 
   useEffect(() => {
 
-    const getState = async () => {
+    const getInvetorys = async () => {
       const inventoryData = await api.getInventory()
-      const placesData = await api.getPlaces()
+
       if (inventoryData) {
-        setInventorys({inventoryData, placesData, loading: false})
+        setInventorys({inventoryData})
       }
     }
-    getState()
+    getInvetorys()
   }, [])
 
-  if(loading) {
-    return <div>Loading</div>
-  }
   return (
     <div className={'layout__content__inventorys'}>
       <ul className={'layout__content__inventorys__items'}>
@@ -38,8 +36,6 @@ export const Inventorys = () => {
             }
           )
         }
-
-
       </ul>
     </div>
   );
