@@ -5,6 +5,8 @@ import {usePlace, useInventory} from '../../../lib'
 type MatchParams = {
   id: string
 }
+
+// usePlace и useInventory используются для демонстрации
 export const ViewPlace: FC<RouteComponentProps<MatchParams>> = ({match}:any) => {
   const placeId = match.params.id
   const {place, loading} = usePlace(placeId)
@@ -24,7 +26,7 @@ export const ViewPlace: FC<RouteComponentProps<MatchParams>> = ({match}:any) => 
           inventorys?.map(inventory => <li key={inventory.id}>{inventory.data.name}</li>)
         }
       </ul>
-      <Link to={'/inventory/add'} className={'add-link'}>
+      <Link to={`/inventory/add-new/${place?.id}`} className={'add-link'}>
         <span className="material-icons">add</span>
         <span className={'add-link__text'}>Добавить оборудование</span>
       </Link>
