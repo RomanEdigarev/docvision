@@ -8,21 +8,9 @@ type State = {
 }
 type Props = {
   placesData: PlacesData | null
+  inventoryData: InventoryData | null
 }
-export const Inventorys: FC<Props> = ({placesData}) => {
-  const [{inventoryData}, setInventorys] = useState<State>({inventoryData: null})
-
-  useEffect(() => {
-
-    const getInvetorys = async () => {
-      const inventoryData = await api.getInventory()
-
-      if (inventoryData) {
-        setInventorys({inventoryData})
-      }
-    }
-    getInvetorys()
-  }, [])
+export const Inventorys: FC<Props> = ({placesData, inventoryData}) => {
 
   return (
     <div className={'layout__content__inventorys'}>

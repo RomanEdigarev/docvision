@@ -16,7 +16,7 @@ export const InventoryItem: FC<Props> = ({inventory, place}) => {
         <div><Link to={`/place/${place.id}`}>Место нахождения: {place.data.name}</Link></div>
         <span>Количество: {inventory.data.count}</span>
       </div>
-      <button>Редактировать</button>
+      <Link to={`/inventory/add-new/${place.id}/${inventory.id}`}><button>Редактировать</button></Link>
     </>
   );
 };

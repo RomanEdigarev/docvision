@@ -41,7 +41,7 @@ export const api = {
   addNewInventory: async ({name, count, placeId}) => {
     // @ts-ignore
     let filestore = firebase.firestore();
-    filestore.collection("inventory").doc().set({
+    await filestore.collection("inventory").doc().set({
       name,
       count,
       place: filestore.collection("places").doc(`${placeId}`)
@@ -49,6 +49,17 @@ export const api = {
 
       console.info("Done");
     });
-  }
+  },
 
+  updateInventory: async (placeId: string, count: string) => {
+    // @ts-ignore
+    const s = await firebase.firestore().collection("inventory").doc(`${placeId}`).set({
+      count
+    }).then(() => {
+      console.info("Done");
+    });
+
+    console.log(s)
+
+  }
 }
