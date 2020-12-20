@@ -5,9 +5,10 @@ import {Link} from "react-router-dom";
 type Props = {
   inventory: Inventory
   place: PlaceType
+  deleteInventory: (inventoryId: string) => Promise<void>
 }
 
-export const InventoryItem: FC<Props> = ({inventory, place}) => {
+export const InventoryItem: FC<Props> = ({inventory, place, deleteInventory}) => {
 
   return (
     <>
@@ -16,7 +17,8 @@ export const InventoryItem: FC<Props> = ({inventory, place}) => {
         <div><Link to={`/place/${place.id}`}>Место нахождения: {place.data.name}</Link></div>
         <span>Количество: {inventory.data.count}</span>
       </div>
-      <Link to={`/inventory/add-new/${place.id}/${inventory.id}`}><button>Редактировать</button></Link>
+      <Link to={`/inventory/add-new/data?placeId=${place.id}&inventoryId=${inventory.id}`}><button>Редактировать</button></Link>
+      <button onClick={() => deleteInventory(inventory.id)}>Удалить</button>
     </>
   );
 };

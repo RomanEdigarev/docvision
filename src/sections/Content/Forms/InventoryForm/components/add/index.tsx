@@ -1,9 +1,7 @@
 import React, {FC} from 'react';
 import {SubmitHandler, useForm} from "react-hook-form";
 import {api} from "../../../../../../lib";
-import {RouteComponentProps} from "react-router-dom";
 import {PlacesData, PlaceType} from "../../../../../../types";
-
 
 type Inputs = {
   name: string,
@@ -23,7 +21,7 @@ type Props = {
 }
 
 export const AddForm : FC<Props> = ({currentPlace, placesData}) => {
-  const {register, handleSubmit, watch, errors} = useForm<Inputs>();
+  const {register, handleSubmit, errors} = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     await api.addNewInventory({...data})

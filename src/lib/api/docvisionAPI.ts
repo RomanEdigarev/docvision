@@ -53,13 +53,18 @@ export const api = {
 
   updateInventory: async (placeId: string, count: string) => {
     // @ts-ignore
-    const s = await firebase.firestore().collection("inventory").doc(`${placeId}`).set({
+    await firebase.firestore().collection("inventory").doc(`${placeId}`).set({
       count
     }).then(() => {
       console.info("Done");
     });
+  },
 
-    console.log(s)
-
+  deleteInventory: async (inventoryId: string) => {
+    // @ts-ignore
+    await firebase.firestore().collection("inventory").doc(inventoryId).delete().then(() => {
+      console.info("Done");
+    })
   }
+
 }
