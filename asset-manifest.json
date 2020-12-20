@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/docvision/static/css/main.4cd2c182.chunk.css",
+    "main.js": "/docvision/static/js/main.3e222185.chunk.js",
+    "main.js.map": "/docvision/static/js/main.3e222185.chunk.js.map",
+    "runtime-main.js": "/docvision/static/js/runtime-main.9a4c3de1.js",
+    "runtime-main.js.map": "/docvision/static/js/runtime-main.9a4c3de1.js.map",
+    "static/js/2.caf709cd.chunk.js": "/docvision/static/js/2.caf709cd.chunk.js",
+    "static/js/2.caf709cd.chunk.js.map": "/docvision/static/js/2.caf709cd.chunk.js.map",
+    "index.html": "/docvision/index.html",
+    "static/css/main.4cd2c182.chunk.css.map": "/docvision/static/css/main.4cd2c182.chunk.css.map",
+    "static/js/2.caf709cd.chunk.js.LICENSE.txt": "/docvision/static/js/2.caf709cd.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9a4c3de1.js",
+    "static/js/2.caf709cd.chunk.js",
+    "static/css/main.4cd2c182.chunk.css",
+    "static/js/main.3e222185.chunk.js"
+  ]
+}
