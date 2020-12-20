@@ -25,7 +25,7 @@ export const AddForm : FC<Props> = ({currentPlace, placesData}) => {
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     await api.addNewInventory({...data})
-    window.location.href = '/inventory'
+    window.location.href = `${process.env.PUBLIC_URL}/#/inventory`
   }
 
   return (

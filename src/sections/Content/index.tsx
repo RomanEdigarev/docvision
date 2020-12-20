@@ -6,6 +6,7 @@ import {Inventorys} from "./Inventorys";
 import {InventoryForm} from "./Forms/InventoryForm";
 import {InventoryData, PlacesData} from "../../types";
 import {api} from "../../lib";
+import {Main} from "../Main";
 
 
 type State = {
@@ -46,6 +47,7 @@ const Content = () => {
 
   return (
     <div className={'layout__content'}>
+      <Route exact path={'/'}><Main/></Route>
       <Route exact path={'/places'}><Places placesData={placesData!}/></Route>
       <Route exact path={'/place/:id'} render={props => <ViewPlace {...props}/>}/>
       <Route exact path={'/inventory'}><Inventorys placesData={placesData} inventoryData={inventoryData}

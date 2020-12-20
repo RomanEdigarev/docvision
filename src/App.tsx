@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.scss';
 import {Menu} from "./sections/Menu";
-import {BrowserRouter as Router, Route} from 'react-router-dom'
+import {HashRouter as Router, Route} from 'react-router-dom'
 import {Header} from "./sections/Header";
 import Content from "./sections/Content";
 
