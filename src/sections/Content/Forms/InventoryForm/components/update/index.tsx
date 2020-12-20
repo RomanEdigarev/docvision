@@ -22,9 +22,9 @@ type Props = {
 export const UpdateForm: FC<Props> = ({currentPlace, currentInventory, placesData}) => {
   const {register, handleSubmit, errors} = useForm<Inputs>();
 
+  // оставляю здесь так как не работает обновленеие оборудование на сервере
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     await api.updateInventory(currentInventory.id, data.count)
-    // window.location.href = '/inventory'
   }
 
   return (

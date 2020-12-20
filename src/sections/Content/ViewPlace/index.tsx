@@ -26,7 +26,7 @@ export const ViewPlace: FC<RouteComponentProps<MatchParams>> = ({match}:any) => 
           inventorys?.map(inventory => <li key={inventory.id}>{inventory.data.name}</li>)
         }
       </ul>
-      <Link to={`/inventory/add-new/${place?.id}`} className={'add-link'}>
+      <Link to={`/inventory/add-new/data?placeId=${place?.id}`} className={'add-link'}>
         <span className="material-icons">add</span>
         <span className={'add-link__text'}>Добавить оборудование</span>
       </Link>
