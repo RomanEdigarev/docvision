@@ -1,12 +1,8 @@
-import React, {FC, useEffect, useState} from 'react';
+import React, {FC} from 'react';
 import {InventoryData, PlacesData} from "../../../types";
-import {api} from '../../../lib'
 import {InventoryItem} from "./components/Inventory";
 import {Link} from "react-router-dom";
 
-type State = {
-  inventoryData: InventoryData | null
-}
 type Props = {
   placesData: PlacesData | null
   inventoryData: InventoryData | null

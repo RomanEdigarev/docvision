@@ -1,7 +1,6 @@
-import React, {FC, useEffect, useState} from 'react';
+import React, {FC} from 'react';
 import {Place} from "./components/Place";
 import {PlacesData, PlaceType} from "../../../types";
-import {api} from '../../../lib/api/docvisionAPI'
 
 type Props = {
   placesData: PlacesData
