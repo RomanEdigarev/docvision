@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import {Link} from 'react-router-dom'
-import {PlacesData, PlaceType} from "../../../../../types";
+import {PlaceType} from "../../../../../types";
 
 
 type Props = {

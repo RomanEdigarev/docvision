@@ -9,19 +9,23 @@ import {api} from "../../lib";
 
 
 type State = {
-  placesData : PlacesData | null,
-  inventoryData : InventoryData | null
+  placesData: PlacesData | null,
+  inventoryData: InventoryData | null
   loading: boolean
 }
 const Content = () => {
-  const [{placesData, inventoryData, loading}, setState] = useState<State>({placesData: null, inventoryData: null, loading: true})
+  const [{placesData, inventoryData, loading}, setState] = useState<State>({
+    placesData: null,
+    inventoryData: null,
+    loading: true
+  })
 
   useEffect(() => {
     const getState = async () => {
       const places = await api.getPlaces()
       const inventory = await api.getInventory()
       if (places && inventory) {
-       setState({placesData: places, inventoryData: inventory, loading: false})
+        setState({placesData: places, inventoryData: inventory, loading: false})
       }
     }
     getState()
@@ -32,11 +36,11 @@ const Content = () => {
     setState({placesData: null, inventoryData: null, loading: true})
     const index = inventoryData?.inventory.findIndex(invent => invent.id === inventoryId)
     inventoryData?.inventory!.splice(index!, 1)
-    await  api.deleteInventory(inventoryId)
+    await api.deleteInventory(inventoryId)
     setState({placesData, inventoryData, loading: false})
   }
 
-  if(loading) {
+  if (loading) {
     return <div>Loading</div>
   }
 
@@ -44,10 +48,10 @@ const Content = () => {
     <div className={'layout__content'}>
       <Route exact path={'/places'}><Places placesData={placesData!}/></Route>
       <Route exact path={'/place/:id'} render={props => <ViewPlace {...props}/>}/>
-      <Route exact path={'/inventory'}><Inventorys placesData={placesData} inventoryData={inventoryData} deleteInventory={deleteInventory}/></Route>
-      <Route path={'/inventory/add-new'} render={props => <InventoryForm {...props} placesData={placesData} inventoryData={inventoryData}/>}/>
-      {/*<Route  path={'/inventory/add-new/:placeId/:inventoryId'}*/}
-      {/*       render={props => <InventoryForm {...props} placesData={placesData} inventoryData={inventoryData}/>}/>*/}
+      <Route exact path={'/inventory'}><Inventorys placesData={placesData} inventoryData={inventoryData}
+                                                   deleteInventory={deleteInventory}/></Route>
+      <Route path={'/inventory/add-new'}
+             render={props => <InventoryForm {...props} placesData={placesData} inventoryData={inventoryData}/>}/>
     </div>
   );
 };
